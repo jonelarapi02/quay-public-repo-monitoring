@@ -20,4 +20,3 @@ jobs:
 
     - name: Push Docker image
       run: docker push dso-quay-registry-quay-quay-enterprise.apps.ocp4.azure.dso.digital.mod.uk/arapij/quay-public-monitoring:latest
-``
