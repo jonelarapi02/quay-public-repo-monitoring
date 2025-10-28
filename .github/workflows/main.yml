@@ -10,12 +10,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-
     - name: Log in to Quay Enterprise
       run: echo "${{ secrets.QUAY_PASSWORD }}" | docker login https://dso-quay-registry-quay-quay-enterprise.apps.ocp3.azure.dso.digital.mod.uk -u "${{ secrets.QUAY_USERNAME }}" --password-stdin
 
     - name: Build Docker image
-      run: docker build -t dso-quay-registry-quay-quay-enterprise.apps.ocp3.azure.dso.digital.mod.uk/jarapi/tester .
+      run: docker build --progress=plain -t dso-quay-registry-quay-quay-enterprise.apps.ocp3.azure.dso.digital.mod.uk/jarapi/tester:latest .
 
     - name: Push Docker image
       run: docker push dso-quay-registry-quay-quay-enterprise.apps.ocp3.azure.dso.digital.mod.uk/jarapi/tester:latest
